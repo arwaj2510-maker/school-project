@@ -8,51 +8,124 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="hero">
-        <div class="hour">
-            <i class="fa-regular fa-clock"></i>
-            <span>Open hours: 8.00-18.00 Mon-Sat</span>
-
-            <i class="fa-brands fa-facebook-f"></i>
-            <i class="fa-brands fa-google-plus-g"></i>
-            <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-instagram"></i>
-        </div>
-        <div class="login">
-            <div>
-                <i class="fa-solid fa-key"></i>
-
-                <span>Login</span>
+    <div id="m-home">
+        <div class="hero">
+            <div class="hour">
+                <div>
+                    <i class="fa-regular fa-clock"></i>
+                    <span>Open hours: 8.00-18.00 Mon-Sat</span>
+                </div>
+                <div>
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-google-plus-g"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
             </div>
+            <div class="login">
+                <button class="btn" onclick="openLogin()">Login</button>
+                <button class="btn signup-btn" onclick="openSignup()">Sign Up</button>
 
-            <div>
-                <i class="fa-solid fa-lock"></i>
-                <span>Sign Up</span>
+                <!-- LOGIN POPUP -->
+                <div class="popup" id="loginPopup">
+                    <div class="popup-content">
+                        <span class="close" onclick="closeLogin()">&times;</span>
+                        <h2>School Login</h2>
+
+                        <input type="email" placeholder="Enter Email">
+                        <input type="password" placeholder="Enter Password">
+
+                        <button class="form-btn">Login</button>
+                    </div>
+                </div>
+
+                <!-- SIGNUP POPUP -->
+                <div class="popup" id="signupPopup">
+                    <div class="popup-content">
+                        <span class="close" onclick="closeSignup()">&times;</span>
+                        <h2>Student Registration</h2>
+
+                        <input type="text" placeholder="Full Name" required>
+                        <input type="email" placeholder="Enter Email" required>
+                        <input type="password" placeholder="Set Password" required>
+
+                        <button class="form-btn">Sign Up</button>
+                    </div>
+                </div>
+                <!-- // -->
             </div>
         </div>
     </div>
 
-    <nav>
-        <img src="images/logo.webp" alt="">
+    <!-- src -->
 
+    <script>
+        function openLogin() {
+            document.getElementById("loginPopup").style.display = "block";
+        }
+
+        function closeLogin() {
+            document.getElementById("loginPopup").style.display = "none";
+        }
+
+        function openSignup() {
+            document.getElementById("signupPopup").style.display = "block";
+        }
+
+        function closeSignup() {
+            document.getElementById("signupPopup").style.display = "none";
+        }
+
+    </script>
+
+    <!-- // -->
+
+    <nav>
+        <div class="logo">
+            <img src="images/logo.webp" alt="">
+        </div>
         <ul class="nav-links">
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Classes</li>
-            <a href="#m-teachers">
-                <li>Teachers</li>
-            </a>
-            <a href="#m-gallery">
-                <li>Gallery</li>
-            </a>
-            <li>blog</li>
-            <li>contact</li>
+            <li><a href="#m-home">Home</a></li>
+            <li> <a href="#m-class">Classes</a></li>
+            <li><a href="#m-teachers">Teachers</a></li>
+            <li><a href="#m-gallery">GALLERY</a></li>
+            <li><a href="#m-blog">blog</a></li>
+            <li><a href="#footer">contact</a></li>
         </ul>
+        <div class="menu-btn" onclick="openMenu()">&#9776;</div>
     </nav>
+
+
+    <div class="mobile-menu" id="mobileMenu">
+        <span class="close-btn" onclick="closeMenu()">&times;</span>
+        <li><a href="#m-home">Home</a></li>
+        <li> <a href="#m-class">Classes</a></li>
+        <li><a href="#m-teachers">Teachers</a></li>
+        <li><a href="#m-gallery">GALLERY</a></li>
+        <li><a href="#m-blog">blog</a></li>
+        <li><a href="#footer">contact</a></li>
+    </div>
+
+    <script>
+        function openMenu() {
+
+            document.getElementById("mobileMenu").style.right = "0";
+        }
+
+        function closeMenu() {
+            document.getElementById("mobileMenu").style.right = "-100%";
+        }
+
+    </script>
+
+
+    <!-- // -->
 
     <div class="child">
         <h2>
@@ -72,39 +145,26 @@
 
     <!-- // -->
 
+    <div id="m-class">
 
-    <div class="same">
-        <h2>Our Classes</h2>
-        <p>Our preschool program has six dedicated classes</p>
-        <span></span><i class="fa-solid fa-graduation-cap"></i><span></span>
-    </div>
-
-
-    <div class="all-classes">
-        <div class="c1">
-            <div class="hd">
-                <h2>OCT 10</h2>
-                <h2>2016</h2>
-            </div>
-            <img src="images/1.webp" alt="">
-            <h4>Cool Activity Class</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
-                molestiae totam.</p>
-            <div class="spn">
-                <span>
-                    AGE:4-5 YEARS
-                </span>
-                <span>CLASS SIZE: 38</span>
+        <div class="same">
+            <h2>Our Classes</h2>
+            <p>Our preschool program has six dedicated classes</p>
+            <div>
+                <hr>
+                <i class="fa-solid fa-graduation-cap"></i>
+                <hr>
             </div>
         </div>
-        <div class="c1">
-            <div class="hd">
-                <h2>OCT 10</h2>
-                <h2>2016</h2>
-            </div>
-            <img src="images/2.webp" alt="">
-            <div>
-                <h4>Drawing Class</h4>
+
+        <div class="all-classes">
+            <div class="c1">
+                <div class="hd">
+                    <h2>OCT 10</h2>
+                    <h2>2016</h2>
+                </div>
+                <img src="images/1.webp" alt="">
+                <h4>Cool Activity Class</h4>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
                     molestiae totam.</p>
                 <div class="spn">
@@ -114,50 +174,31 @@
                     <span>CLASS SIZE: 38</span>
                 </div>
             </div>
-        </div>
-        <div class="c1">
-            <div class="hd">
-                <h2>OCT 10</h2>
-                <h2>2016</h2>
+            <div class="c1">
+                <div class="hd">
+                    <h2>OCT 10</h2>
+                    <h2>2016</h2>
+                </div>
+                <img src="images/2.webp" alt="">
+                <div>
+                    <h4>Drawing Class</h4>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
+                        molestiae totam.</p>
+                    <div class="spn">
+                        <span>
+                            AGE:4-5 YEARS
+                        </span>
+                        <span>CLASS SIZE: 38</span>
+                    </div>
+                </div>
             </div>
-            <img src="images/3.webp" alt="">
-            <h4>Letter Match Class</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
-                molestiae totam.</p>
-            <div class="spn">
-                <span>
-                    AGE:4-5 YEARS
-                </span>
-                <span>CLASS SIZE: 38</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="all-classes">
-        <div class="c1">
-            <div class="hd">
-                <h2>OCT 10</h2>
-                <h2>2016</h2>
-            </div>
-            <img src="images/4.webp" alt="">
-            <h4>Alphabet Match Class</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
-                molestiae totam.</p>
-            <div class="spn">
-                <span>
-                    AGE:4-5 YEARS
-                </span>
-                <span>CLASS SIZE: 38</span>
-            </div>
-        </div>
-        <div class="c1">
-            <div class="hd">
-                <h2>OCT 10</h2>
-                <h2>2016</h2>
-            </div>
-            <img src="images/5.webp" alt="">
-            <div>
-                <h4>Science Class</h4>
+            <div class="c1">
+                <div class="hd">
+                    <h2>OCT 10</h2>
+                    <h2>2016</h2>
+                </div>
+                <img src="images/3.webp" alt="">
+                <h4>Letter Match Class</h4>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
                     molestiae totam.</p>
                 <div class="spn">
@@ -167,21 +208,57 @@
                     <span>CLASS SIZE: 38</span>
                 </div>
             </div>
-        </div>
-        <div class="c1">
-            <div class="hd">
-                <h2>OCT 10</h2>
-                <h2>2016</h2>
+
+
+            <div class="c1">
+                <div class="hd">
+                    <h2>OCT 10</h2>
+                    <h2>2016</h2>
+                </div>
+                <img src="images/4.webp" alt="">
+                <h4>Alphabet Match Class</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
+                    molestiae totam.</p>
+                <div class="spn">
+                    <span>
+                        AGE:4-5 YEARS
+                    </span>
+                    <span>CLASS SIZE: 38</span>
+                </div>
             </div>
-            <img src="images/6.webp" alt="">
-            <h4>Cool Math Class</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
-                molestiae totam.</p>
-            <div class="spn">
-                <span>
-                    AGE:4-5 YEARS
-                </span>
-                <span>CLASS SIZE: 38</span>
+            <div class="c1">
+                <div class="hd">
+                    <h2>OCT 10</h2>
+                    <h2>2016</h2>
+                </div>
+                <img src="images/5.webp" alt="">
+                <div>
+                    <h4>Science Class</h4>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
+                        molestiae totam.</p>
+                    <div class="spn">
+                        <span>
+                            AGE:4-5 YEARS
+                        </span>
+                        <span>CLASS SIZE: 38</span>
+                    </div>
+                </div>
+            </div>
+            <div class="c1">
+                <div class="hd">
+                    <h2>OCT 10</h2>
+                    <h2>2016</h2>
+                </div>
+                <img src="images/6.webp" alt="">
+                <h4>Cool Math Class</h4>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
+                    molestiae totam.</p>
+                <div class="spn">
+                    <span>
+                        AGE:4-5 YEARS
+                    </span>
+                    <span>CLASS SIZE: 38</span>
+                </div>
             </div>
         </div>
     </div>
@@ -217,7 +294,11 @@
         <div class="same">
             <h2>Our Teachers</h2>
             <p>We are glad to introduce our professional staff</p>
-            <i class="fa-solid fa-graduation-cap"></i>
+            <div>
+                <hr>
+                <i class="fa-solid fa-graduation-cap"></i>
+                <hr>
+            </div>
         </div>
 
         <div class="all-teachers">
@@ -225,7 +306,8 @@
                 <img src="images/7.webp" alt="">
                 <h2>KAILO</h2>
                 <span>Professor, Harverd College</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, totam temporibus possimus nam eius
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, totam temporibus possimus nam
+                    eius
                     aut
                     maxime.</p>
                 <i class="fa-brands fa-facebook-f"></i>
@@ -237,7 +319,8 @@
                 <img src="images/8.webp" alt="">
                 <h2>GRAVES</h2>
                 <span>Professor, Harverd College</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, totam temporibus possimus nam eius
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, totam temporibus possimus nam
+                    eius
                     aut
                     maxime.</p>
                 <i class="fa-brands fa-facebook-f"></i>
@@ -249,7 +332,8 @@
                 <img src="images/9.webp" alt="">
                 <h2>POPPY</h2>
                 <span>Professor, Harverd College</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, totam temporibus possimus nam eius
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, totam temporibus possimus nam
+                    eius
                     aut
                     maxime.</p>
                 <i class="fa-brands fa-facebook-f"></i>
@@ -261,7 +345,8 @@
                 <img src="images/10.webp" alt="">
                 <h2>MAOKAI</h2>
                 <span>Professor, Harverd College</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, totam temporibus possimus nam eius
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, totam temporibus possimus nam
+                    eius
                     aut
                     maxime.</p>
                 <i class="fa-brands fa-facebook-f"></i>
@@ -276,10 +361,15 @@
 
     <div id="m-gallery">
 
+
         <div class="same">
             <h2>Our Gallery</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <i class="fa-solid fa-graduation-cap"></i>
+            <div>
+                <hr>
+                <i class="fa-solid fa-graduation-cap"></i>
+                <hr>
+            </div>
         </div>
 
         <div class="all-imgs">
@@ -301,51 +391,58 @@
             <p>See Our Kindergarten
                 <span>Photo Gallery!</span>
             </p>
-            <button>View Now</button>
+            <a href="glry.html">View Now</a>
         </div>
     </div>
 
     <!-- //blog// -->
 
-    <div class="same">
-        <h2>Our Blog</h2>
-        <p>Latest news & event of our schools</p>
-        <i class="fa-solid fa-graduation-cap"></i>
-    </div>
+    <div id="m-blog">
 
-    <div class="all-blogs">
-        <div class="b1">
-            <img src="images/11.webp" alt="">
-            <h4>New Friends Everyday At Kiddie</h4>
+        <div class="same">
+            <h2>Our Blog</h2>
+            <p>Latest news & event of our schools</p>
             <div>
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>8 Apr, 2016</span>
+                <hr>
+                <i class="fa-solid fa-graduation-cap"></i>
+                <hr>
             </div>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
-                molestiae totam.</p>
-            <a href="">Read More.</a>
         </div>
-        <div class="b1">
-            <img src="images/12.webp" alt="">
-            <h4>Swimming Lessons At The New Pool</h4>
-            <div>
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>27 Jan, 2014</span>
+
+        <div class="all-blogs">
+            <div class="b1">
+                <img src="images/11.webp" alt="">
+                <h4>New Friends Everyday At Kiddie</h4>
+                <div>
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span>8 Apr, 2016</span>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
+                    molestiae totam.</p>
+                <a href="">Read More.</a>
             </div>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
-                molestiae totam.</p>
-            <a href="">Read More.</a>
-        </div>
-        <div class="b1">
-            <img src="images/13.webp" alt="">
-            <h4>Play In Our Brain's Favorite Way Of</h4>
-            <div>
-                <i class="fa-regular fa-calendar-days"></i>
-                <span>20 Feb, 2015</span>
+            <div class="b1">
+                <img src="images/12.webp" alt="">
+                <h4>Swimming Lessons At The New Pool</h4>
+                <div>
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span>27 Jan, 2014</span>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
+                    molestiae totam.</p>
+                <a href="">Read More.</a>
             </div>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
-                molestiae totam.</p>
-            <a href="">Read More.</a>
+            <div class="b1">
+                <img src="images/13.webp" alt="">
+                <h4>Play In Our Brain's Favorite Way Of</h4>
+                <div>
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span>20 Feb, 2015</span>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, tempora consequuntur corrupti quo
+                    molestiae totam.</p>
+                <a href="">Read More.</a>
+            </div>
         </div>
     </div>
 
@@ -354,11 +451,14 @@
     <div class="same">
         <h2>Our Testimonials</h2>
         <p>How real people said about Education TechEdu</p>
-        <i class="fa-solid fa-graduation-cap"></i>
+        <div>
+            <hr>
+            <i class="fa-solid fa-graduation-cap"></i>
+            <hr>
+        </div>
     </div>
 
     <div class="wrapper">
-
         <!-- FIXED TEXT -->
         <div class="center-text">
             <h2 id="name">JULIA</h2>
@@ -425,22 +525,78 @@
 
     <!-- //Footer// -->
 
-    <div class="footer">
+    <div id="footer">
         <div class="tech">
-            <img src="images/logo.webp" alt="">
-            <div>
-                <i class="fa-solid fa-location-dot"></i>
-                <p>1st Floor New World Tower Miami</p>
+            <img src="images/footer-logo.webp" alt="">
+            <div class="ft">
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>1st Floor New World Tower Miami</span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>admin@power-boosts.com</span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>(801) 2345 - 6789</span>
+                </div>
             </div>
-            <div>
-                <i class="fa-solid fa-envelope"></i>
+        </div>
+        <hr>
 
+        <div class="ft-links">
+            <div class="f1">
+                <h2>Our School</h2>
+                <ul>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="#m-blog">Blog</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                    <li><a href="#m-teachers">Become a Teacher</a></li>
+                </ul>
+            </div>
+            <div class="f1">
+                <h2>Links</h2>
+                <ul>
+                    <li><a href="">Courses</a></li>
+                    <li><a href="">Events</a></li>
+                    <li><a href="#m-gallery">Gallery</a></li>
+                    <li><a href="">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="f1">
+                <h2>Support</h2>
+                <ul>
+                    <li><a href="">Documentation</a></li>
+                    <li><a href="">Forums</a></li>
+                    <li><a href="">Language Packs</a></li>
+                    <li><a href="">Release Status</a></li>
+                </ul>
+            </div>
+            <div class="f2">
+                <p>Subscribe now and receive weekly newsletter with educational materials, new courses, interesting
+                    posts, popular books and much more!</p>
+                <div>
+                    <input type="email" name="email" placeholder="Your email here">
+                    <button><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="last">
+            <div class="l1">
+                <p>© 2026 Power-Boosts. All rights reserved</p>
+            </div>
+            <div class="l2">
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-google-plus-g"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-pinterest-p"></i>
+                <i class="fa-brands fa-square-instagram"></i>
             </div>
         </div>
     </div>
-
-
-
 </body>
 
 </html>
